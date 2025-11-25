@@ -25,15 +25,15 @@ python app.py
 
 - **Upload ảnh/video**: nhấn “Tải Ảnh Lên” hoặc “Tải Video Lên”. Ảnh kết quả sẽ hiển thị cùng bảng **Phân tích biển cấm** (chỉ tính các nhãn nằm trong `data.yaml`).
 - **Camera laptop**: nhấn “Mở Camera”, YOLO xử lý từng frame, camera tự tắt sau 2 phút nếu không thao tác, và bảng phân tích cập nhật liên tục. Thao tác `F12 → Console` để xem log `[CAMERA]`.
-- **Thống kê**: dữ liệu phân loại dựa trên `HeThongGiaoThongThongMinh-feature-YoloIntegration/data.yaml` (trường `names` và `groups`). Chỉ cần chỉnh sửa file YAML này để thêm/bớt nhóm hoặc cập nhật tên.
+- **Thống kê**: dữ liệu phân loại dựa trên `backend/data.yaml` (trường `names`). Chỉ cần chỉnh sửa file YAML này để thêm/bớt nhóm hoặc cập nhật tên.
 
-## ⚙️ Cấu hình
+##  Cấu hình
 
 | Thành phần | Vai trò | Ghi chú |
 | --- | --- | --- |
 | `CAMERA_ANALYSIS_INTERVAL` | Số frame giữa các lần cập nhật thống kê | Giá trị nhỏ → cập nhật nhanh hơn |
 | `CAMERA_STREAM_TIMEOUT` | Tự tắt camera sau X giây không thao tác | Mặc định 120 |
-| `DATA_YAML_PATH` | Đường dẫn tới `data.yaml` chứa `names` và `groups` | Mặc định dùng file trong thư mục `HeThong...-feature-YoloIntegration` |
+| `DATA_YAML_PATH` | Đường dẫn tới `data.yaml` | Mặc định dùng file trong thư mục `backend` |
 
 ##  Cấu trúc gọn
 
@@ -41,8 +41,7 @@ python app.py
 app.py                  # Flask + xử lý nhận diện YOLO
 templates/nhandien.html # UI nhận diện + bảng phân tích
 static/assets/img       # Bộ ảnh demo
-HeThong...-feature-YoloIntegration/data.yaml  # Nơi chỉnh tên & nhóm biển báo
-tools/cleanup_workspace.py  # Script dọn dẹp / đổi tên thư mục (tùy chọn)
+HeThong.../backend/data.yaml  # Nơi chỉnh tên & nhóm biển báo
 ```
 
 ##  Tính năng nổi bật
